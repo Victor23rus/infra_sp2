@@ -4,9 +4,10 @@ services:
   db:
     image: postgres:13.0-alpine
     volumes:
-      - /var/lib/postgresql/data/
+      - yambd:/var/lib/postgresql/data/
     env_file:
       - ./.env
+  
   web:
     build: ../api_yamdb
     restart: always
@@ -35,5 +36,6 @@ services:
       - web
 
 volumes:
+  yambd:
   static_value:
   media_value:
